@@ -21,13 +21,19 @@ function App() {
       console.log("added to cart")
   }
 
+  function handleRemove(key){
+     setCart(cart => {
+     return cart.filter((item) => item.id !== key)
+      })
+  }
+
 
 
   return (
     <>
       <section id="center">
         <p>Cart {cart.length}</p>
-        <CurrentCart cartHolder = {cart}/>
+        <CurrentCart cartHolder = {cart} delete = {handleRemove}/>
         <div className='products-grid'>
           {products.map((product) => {
               
