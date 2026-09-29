@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import './App.css'
 import ProductCard from './ProductCard'
+import CurrentCart from './Cart'
 
 
 function App() {
@@ -23,10 +21,13 @@ function App() {
       console.log("added to cart")
   }
 
+
+
   return (
     <>
       <section id="center">
         <p>Cart {cart.length}</p>
+        <CurrentCart cartHolder = {cart}/>
         <div className='products-grid'>
           {products.map((product) => {
               

@@ -3,11 +3,11 @@
 function CurrentCart(props){
 
  return (
-    props.cartHolder.map(() =>
-        <>
-        <p>{props.title}</p>
-        <p>{props.price}</p>
-        </>
+    props.cartHolder.map((product) =>
+        <div key ={product.id}>
+        <p>{product.title}</p>
+        <p>{product.price}</p>
+        </div>
     )
  )
 
