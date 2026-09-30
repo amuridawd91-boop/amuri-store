@@ -33,8 +33,29 @@ function App() {
 
   function handleRemove(key){
      setCart(cart => {
-     return cart.filter((item) => item.id !== key)
+     return cart.filter((item) => item.product.id !== key)
       })
+  }
+
+  function handleIncrease(productId){
+    setCart(cart.map((item) =>{
+          if (item.product.id === productId){
+            return {...item, quantity: item.quantity + 1}
+          } else {
+            return item
+          }
+      }))
+
+  }
+
+  function handleDecrease(productId){
+    const itemToDecrease = cart.find((item) => item.product.id === productId)
+    if (itemToDecrease.quantity > 1){
+     setCart(cart.map(item => item.product.id === productId ? {...item, quantity: item.quantity - 1} : item)
+    )} else if (itemToDecrease.quantity === 1){ 
+      setCart(cart.filter((item)=> item.product.id !== productId))
+    }
+    
   }
 
 
@@ -42,8 +63,10 @@ function App() {
   return (
     <>
       <section id="center">
+        <div className='cart-section'>
         <p>Cart {cart.length}</p>
-        <CurrentCart cartHolder = {cart} delete = {handleRemove}/>
+        <CurrentCart cartHolder = {cart} delete = {handleRemove} increase = {handleIncrease} decrease = {handleDecrease}/>
+        </div>
         <div className='products-grid'>
           {products.map((product) => {
               
