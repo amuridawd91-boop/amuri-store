@@ -7,7 +7,13 @@ import ProductDetails from './ProductDetails'
 
 
 function App() {
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem("cart")
+    if (savedCart){
+      JSON.parse(savedCart)
+    }
+    return []
+  })
 
   const [products, setProducts] = useState([])
 
@@ -19,6 +25,9 @@ function App() {
     .then((data) => setProducts(data.products))
   }, [])
 
+   useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart))
+      }, [cart])
 
   function handleCart(product){
       if (cart.some(item => item.product.id === product.id)){
