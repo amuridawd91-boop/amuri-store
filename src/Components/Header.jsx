@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import '../../public/App.css'
 
  function Header(props){
       return    (  
@@ -12,8 +14,8 @@
               </div>
               <div className="header-actions">
                 <div className="store-nav">
-                  <span>Shop</span>
-                  <span>About</span>
+                  <Link to = "/">Shop</Link>
+                  <Link to = "/about">About</Link>
                 </div>
                 <div className="header-cart">
                     <button onClick={props.openCart} className="cart-button">

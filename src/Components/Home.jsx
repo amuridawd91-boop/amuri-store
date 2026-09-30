@@ -1,5 +1,6 @@
 import ProductCard from "./ProductCard"
 import CurrentCart from "./Cart"
+import '../../public/App.css'
 
 function Home(props) {
   return (

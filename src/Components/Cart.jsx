@@ -1,4 +1,4 @@
-
+import '../../public/App.css'
 
 
 function CurrentCart(props){

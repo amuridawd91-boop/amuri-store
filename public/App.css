@@ -395,14 +395,15 @@
   gap: 28px;
 }
 
-.store-nav span {
+.store-nav a{
   color: var(--text);
+  text-decoration: none;
   font-weight: 600;
   cursor: pointer;
-  transition: color 0.2s;
+  transition: color 0.2s; 
 }
 
-.store-nav span:hover {
+.store-nav a:hover {
   color: var(--accent);
 }
 
@@ -501,4 +502,98 @@
     flex-direction: column;
     gap: 8px;
   }
+}
+
+.about-page {
+  width: 90%;
+  max-width: 800px;
+  margin: 100px auto;
+}
+
+.about-card {
+  padding: 40px;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.about-logo {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border-radius: 50%;
+}
+
+.about-card h1 {
+  color: var(--text-h);
+  margin-bottom: 15px;
+}
+
+.about-bio {
+  max-width: 600px;
+  margin: 0 auto 35px;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.about-card h2 {
+  color: var(--text-h);
+  font-size: 20px;
+}
+
+.about-skills {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 30px;
+}
+
+.about-skills span {
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--text);
+}
+
+.about-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.about-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.about-links a:hover {
+  color: var(--accent);
+}
+
+.portfolio-note {
+  margin-top: 30px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: var(--bg);
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.back-button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
 }
