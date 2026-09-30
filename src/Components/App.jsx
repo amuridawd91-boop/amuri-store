@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom'
 import ProductDetails from './ProductDetails'
 import Footer from './Footer'
 import Header from './Header'
+import Home from './Home'
 
 function App() {
   const [cart, setCart] = useState(() => {
@@ -95,23 +96,17 @@ function App() {
         element={
           <>
             <Header />
-            <section id="center">
-              <div className='cart-button-wrapper'>
-                  <button onClick = {openCart} className='cart-button'>🛒</button>
-                  <span className='cart-badge'>{cart.length}</span>
-              </div>
-              {showCart ? (
-                  <div className='cart-section' >
-                        <CurrentCart cartHolder = {cart} delete = {handleRemove} increase = {handleIncrease} decrease = {handleDecrease} totalPrice = {cartTotal()}/>
-                  </div>) : null }
-        
-              <div className='products-grid'>
-                {products.map((product) => {
-                  return  <ProductCard key = {product.id} product = {product} cart = {handleCart}/>  
-             })}
-              </div>
-         
-            </section>
+             <Home
+                products={products}
+                cart={cart}
+                showCart={showCart}
+                openCart={openCart}
+                handleCart={handleCart}
+                handleRemove={handleRemove}
+                handleIncrease={handleIncrease}
+                handleDecrease={handleDecrease}
+                cartTotal={cartTotal}
+              />
             <Footer />
           </>
         }
