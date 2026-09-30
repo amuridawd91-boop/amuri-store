@@ -3,17 +3,7 @@ import CurrentCart from "./Cart"
 
 function Home(props) {
   return (
-    <section id="center">
-
-      <div className="cart-button-wrapper">
-        <button onClick={props.openCart} className="cart-button">
-          🛒
-        </button>
-
-        <span className="cart-badge">
-          {props.cart.length}
-        </span>
-      </div>
+    <section id="center">    
 
       {props.showCart ? (
         <div className="cart-section">

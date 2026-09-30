@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
 import '../../public/App.css'
-import ProductCard from './ProductCard'
-import CurrentCart from './Cart'
 import { Routes, Route } from 'react-router-dom'
 import ProductDetails from './ProductDetails'
 import Footer from './Footer'
@@ -95,8 +93,11 @@ function App() {
         path="/"
         element={
           <>
-            <Header />
-             <Home
+            <Header 
+                cart={cart}
+                openCart={openCart}
+            />
+            <Home
                 products={products}
                 cart={cart}
                 showCart={showCart}
