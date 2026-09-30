@@ -66,8 +66,12 @@ function App() {
     setShowCart(!showCart)
   }
 
+  function cartTotal(){
+  return cart.reduce((total, item) => 
+    total + (item.product.price * item.quantity)
 
-
+  , 0)
+  }
 
 
 
@@ -80,7 +84,7 @@ function App() {
         </div>
            {showCart ? (
             <div className='cart-section' >
-              <CurrentCart cartHolder = {cart} delete = {handleRemove} increase = {handleIncrease} decrease = {handleDecrease}/>
+              <CurrentCart cartHolder = {cart} delete = {handleRemove} increase = {handleIncrease} decrease = {handleDecrease} totalPrice = {cartTotal()}/>
             </div>) : null }
         
         <div className='products-grid'>

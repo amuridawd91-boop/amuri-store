@@ -4,7 +4,8 @@ import './App.css'
 function CurrentCart(props){
 
  return (
-    props.cartHolder.map((item) =>
+    <>   
+     {props.cartHolder.map((item) =>
         <div key ={item.product.id} className='cart-item' >
             <p>{item.product.title}</p>
             <p>{item.product.price}$</p>
@@ -15,8 +16,12 @@ function CurrentCart(props){
                     <button onClick={()=> props.increase(item.product.id)}>+</button>
                 </div>
             <button className = "remove-button" onClick={() => props.delete(item.product.id)}>Remove</button>
+           
         </div>
-    )
+    )}
+     <p>Total {props.totalPrice}$</p>
+    </>
+
  )
 
 }
