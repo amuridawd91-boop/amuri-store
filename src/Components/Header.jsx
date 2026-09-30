@@ -2,8 +2,8 @@
 
 
 
-    function Header(){
-            <header className="store-header">
+ function Header(){
+      return    (  <header className="store-header">
               <div className="store-brand">
                   <div className="store-logo">🛍️</div>
 
@@ -18,6 +18,6 @@
                   <span>About</span>
               </div>
             </header>
-        }
+        )}
 
 export default Header;

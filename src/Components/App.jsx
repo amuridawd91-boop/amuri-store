@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import './App.css'
+import '../../public/App.css'
 import ProductCard from './ProductCard'
 import CurrentCart from './Cart'
 import { Routes, Route } from 'react-router-dom'
