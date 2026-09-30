@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import ProductCard from './ProductCard'
 import CurrentCart from './Cart'
+import { Routes, Route } from 'react-router-dom'
+import ProductDetails from './ProductDetails'
 
 
 function App() {
@@ -76,32 +78,42 @@ function App() {
 
 
   return (
-    <>
-      <section id="center">
-        <div className='cart-button-wrapper'>
-          <button onClick = {openCart} className='cart-button'>🛒</button>
-          <span className='cart-badge'>{cart.length}</span>
-        </div>
-           {showCart ? (
-            <div className='cart-section' >
-              <CurrentCart cartHolder = {cart} delete = {handleRemove} increase = {handleIncrease} decrease = {handleDecrease} totalPrice = {cartTotal()}/>
-            </div>) : null }
-        
-        <div className='products-grid'>
-          {products.map((product) => {
-              
-            return  <ProductCard key = {product.id} product = {product} cart = {handleCart}/>  
-             
-              
-          })}
-          
-         </div>
-         
-      </section>
+    <Routes>
 
-      
-    </>
+      <Route
+        path="/"
+        element={
+          <>
+            <section id="center">
+              <div className='cart-button-wrapper'>
+                  <button onClick = {openCart} className='cart-button'>🛒</button>
+                  <span className='cart-badge'>{cart.length}</span>
+              </div>
+              {showCart ? (
+                  <div className='cart-section' >
+                        <CurrentCart cartHolder = {cart} delete = {handleRemove} increase = {handleIncrease} decrease = {handleDecrease} totalPrice = {cartTotal()}/>
+                  </div>) : null }
+        
+              <div className='products-grid'>
+                {products.map((product) => {
+                  return  <ProductCard key = {product.id} product = {product} cart = {handleCart}/>  
+             })}
+              </div>
+         
+            </section>
+
+          </>
+        }
+      />
+
+      <Route
+      path="/products/:id"
+      element={<ProductDetails products = {products}/>}
+      />
+
+    </Routes>
   )
+  
 }
 
 export default App
