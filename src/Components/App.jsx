@@ -27,7 +27,10 @@ function App() {
 
    useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart))
-      }, [cart])
+      if  (cart.length === 0){
+          setShowCart(false)
+      }
+    }, [cart])
 
   function handleCart(product){
       if (cart.some(item => item.product.id === product.id)){

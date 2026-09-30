@@ -131,7 +131,12 @@
 }
 
 .remove-button {
-  margin-top: 8px;
+  align-self: center;
+  margin: 0;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 7px 14px;
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -184,7 +189,7 @@
   gap: 16px;
   padding: 18px 0;
   border-bottom: 1px solid var(--border);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .cart-item:last-child {
@@ -208,13 +213,11 @@
   font-weight: 700;
 }
 
-.cart-item .quantity-controls {
-  flex-shrink: 0;
-}
-
+.cart-item .quantity-controls 
 .cart-item .remove-button {
   flex-shrink: 0;
 }
+
 
 .header-actions {
   display: flex;

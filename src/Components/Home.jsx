@@ -5,7 +5,7 @@ function Home(props) {
   return (
     <section id="center">    
 
-      {props.showCart ? (
+      {props.showCart && props.cart.length > 0 ? (
         <div className="cart-section">
           <CurrentCart
             cartHolder={props.cart}
