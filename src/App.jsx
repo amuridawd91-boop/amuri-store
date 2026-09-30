@@ -9,7 +9,9 @@ function App() {
 
   const [products, setProducts] = useState([])
 
-  useEffect(() => {
+  const [showCart, setShowCart] = useState(false)
+
+   useEffect(() => {
     fetch("https://dummyjson.com/products")
     .then((response) => response.json())
     .then((data) => setProducts(data.products))
@@ -29,6 +31,8 @@ function App() {
       } else {
        return setCart([...cart, {product, quantity: 1 }])
       }
+
+      setShowCart(false)
     }
 
   function handleRemove(key){
@@ -58,15 +62,27 @@ function App() {
     
   }
 
+  function openCart(){
+    setShowCart(!showCart)
+  }
+
+
+
+
 
 
   return (
     <>
       <section id="center">
-        <div className='cart-section'>
-        <p>Cart {cart.length}</p>
-        <CurrentCart cartHolder = {cart} delete = {handleRemove} increase = {handleIncrease} decrease = {handleDecrease}/>
+        <div className='cart-button-wrapper'>
+          <button onClick = {openCart} className='cart-button'>🛒</button>
+          <span className='cart-badge'>{cart.length}</span>
         </div>
+           {showCart ? (
+            <div className='cart-section' >
+              <CurrentCart cartHolder = {cart} delete = {handleRemove} increase = {handleIncrease} decrease = {handleDecrease}/>
+            </div>) : null }
+        
         <div className='products-grid'>
           {products.map((product) => {
               
