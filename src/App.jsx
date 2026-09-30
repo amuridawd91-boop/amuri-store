@@ -4,13 +4,14 @@ import ProductCard from './ProductCard'
 import CurrentCart from './Cart'
 import { Routes, Route } from 'react-router-dom'
 import ProductDetails from './ProductDetails'
-
+import Footer from './Footer'
+import Header from './Header'
 
 function App() {
   const [cart, setCart] = useState(() => {
     const savedCart = localStorage.getItem("cart")
     if (savedCart){
-      JSON.parse(savedCart)
+      return JSON.parse(savedCart)
     }
     return []
   })
@@ -93,6 +94,7 @@ function App() {
         path="/"
         element={
           <>
+            <Header />
             <section id="center">
               <div className='cart-button-wrapper'>
                   <button onClick = {openCart} className='cart-button'>🛒</button>
@@ -110,7 +112,7 @@ function App() {
               </div>
          
             </section>
-
+            <Footer />
           </>
         }
       />
