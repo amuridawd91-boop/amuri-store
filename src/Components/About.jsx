@@ -47,7 +47,7 @@ function About() {
           </a>
 
           <a href="mailto:amuridawd91@gmail.com">
-            Email
+            * amuridawd91@gmail.com *
           </a>
         </div>
 

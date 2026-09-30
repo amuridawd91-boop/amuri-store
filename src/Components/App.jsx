@@ -91,16 +91,19 @@ function App() {
 
 
   return (
+    <>
+       <Header 
+          cart={cart}
+           openCart={openCart}
+        />
+   
     <Routes>
-
+       
       <Route
         path="/"
         element={
           <>
-            <Header 
-                cart={cart}
-                openCart={openCart}
-            />
+           
             <Home
                 products={products}
                 cart={cart}
@@ -123,6 +126,7 @@ function App() {
       />
       <Route path="/about" element={<About />} />
     </Routes>
+   </>
   )
   
 }
